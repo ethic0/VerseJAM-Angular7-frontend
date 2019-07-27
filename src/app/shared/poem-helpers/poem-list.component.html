@@ -1,0 +1,29 @@
+<app-poem-preview
+  *ngFor="let poem of results"
+  [poem]="poem">
+</app-poem-preview>
+
+<div class="app-poem-preview"
+  [hidden]="!loading">
+  Loading articles...
+</div>
+
+<div class="app-poem-preview"
+  [hidden]="loading || results.length">
+  No Poems are here... yet.
+</div>
+
+<nav [hidden]="loading || totalPages.length <= 1">
+  <ul class="pagination">
+
+    <li class="page-item"
+      [ngClass]="{'active': pageNumber === currentPage}"
+      *ngFor="let pageNumber of totalPages"
+      (click)="setPageTo(pageNumber)">
+
+      <a class="page-link" >{{ pageNumber }}</a>
+
+    </li>
+
+  </ul>
+</nav>

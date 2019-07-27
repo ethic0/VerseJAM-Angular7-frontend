@@ -1,0 +1,17 @@
+<div class="poem-meta">
+  <a [routerLink]="['/profile', poem.author.username]">
+    <img [src]="poem.author.image" />
+  </a>
+
+  <div class="info">
+    <a class="author"
+      [routerLink]="['/profile', poem.author.username]">
+      {{ poem.author.username }}
+    </a>
+    <span class="date">
+      {{ poem.createdAt | date: 'longDate' }}
+    </span>
+  </div>
+
+  <ng-content></ng-content>
+</div>
